@@ -1,0 +1,291 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Pardakhtnovin Gateway\n"
+"POT-Creation-Date: 2017-05-23 15:44+0430\n"
+"PO-Revision-Date: 2017-05-23 15:59+0430\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: index.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: index.php:44
+msgid "Pardakhtnovin Gateway"
+msgstr "درگاه پرداخت نوین"
+
+#: index.php:47
+msgid ""
+"The WooCommerce Pardakhtnovin Gateway Plugin allows you to integrate the "
+"Pardakhtnovin payment gateway with your WooCommerce store."
+msgstr ""
+"افزونه درگاه پرداخت نوین این امکان را به شما می دهد تا فروشگاه خود را به "
+"درگاه پرداخت نوین (بانک اقتصاد نوین) متصل کنید."
+
+#: index.php:84
+msgid "Pardkhtnovin Gateway Settings"
+msgstr "تنظیمات درگاه پرداخت نوین"
+
+#: index.php:85
+msgid "Certificate file settings"
+msgstr "تنظیمات فایل certificate"
+
+#: index.php:91 index.php:95
+msgid "Upload the certificate file"
+msgstr "آپلود فایل certificate"
+
+#: index.php:97
+msgid "Choose the certificate file"
+msgstr "انتخاب فایل certificate"
+
+#: index.php:106
+msgid "The certificate file is already uploaded."
+msgstr "فایل certificate آپلود شده است و نیازی به انتخاب دوباره آن نیست."
+
+#: index.php:108
+msgid "The certificate file is not uploaded yet."
+msgstr "فایل certificate هنوز آپلود نشده است. لطفاً آن را انتخاب نمایید."
+
+#: index.php:111
+msgid "The certificate file must have pem extension."
+msgstr "فایل certificate باید پسوند pem داشته باشد."
+
+#: index.php:116
+msgid "The Home directory is not writable!"
+msgstr ""
+"متاسفانه اجازه ی لازم برای آپلود فایل در دایرکتوری Home وجود ندارد. لطفا این "
+"مشکل را با ادمین هاست خود در میان بگذارید!"
+
+#: index.php:141
+msgid "Pardakhtnovin Account Configurations"
+msgstr "تنظیمات حساب پرداخت نوین"
+
+#: index.php:146
+msgid "Terminal ID"
+msgstr "ترمینال آی دی"
+
+#: index.php:148
+msgid "Terminal ID of Pardakhtnovin Gateway"
+msgstr "شماره ترمینال درگاه پرداخت نوین"
+
+#: index.php:153
+msgid "Username"
+msgstr "نام کاربری"
+
+#: index.php:155
+msgid "Username of Pardakhtnovin Gateway"
+msgstr "نام اربری رگاه پرداخت نوین"
+
+#: index.php:160
+msgid "Password"
+msgstr "کلمه عبور"
+
+#: index.php:162
+msgid "Password of Pardakhtnovin Gateway"
+msgstr "کلمه عبور درگاه پرداخت نوین"
+
+#: index.php:167 index.php:169
+msgid "Certificate Password"
+msgstr "کلمه عبور certificate"
+
+#: index.php:176
+msgid "Plugin Configurations"
+msgstr "تنظیمات افزونه"
+
+#: index.php:181
+msgid "Enable / Disable"
+msgstr "فعالسازی / غیرفعالسازی"
+
+#: index.php:183
+msgid "Enable"
+msgstr "فعالسازی"
+
+#: index.php:184
+msgid "Check to enable Novinpardakht Gateway"
+msgstr "برای فعالسازی درگاه پرداخت نوین تیک بزنید"
+
+#: index.php:189
+msgid "Gateway Title"
+msgstr "عنوان درگاه"
+
+#: index.php:191
+msgid ""
+"Enter the title you want to display to the user during checkout and payment"
+msgstr ""
+"عنوانی که می خواهید که به هنگام پرداخت به کاربر نمایش داده شود را وارد کنید"
+
+#: index.php:192
+msgid "Pardakhtnovin"
+msgstr "پرداخت نوین"
+
+#: index.php:196
+msgid "Gateway Description"
+msgstr "توضیحات درگاه"
+
+#: index.php:199
+msgid ""
+"Enter the description you want to display to the user during checkout and "
+"payment"
+msgstr ""
+"توضیحاتی که  می خواهید که به هنگام پرداخت به کاربر نمایش داده شود را وارد "
+"کنید"
+
+#: index.php:200
+msgid "Secure payment with all Shetab Cards with Pardakhtnovin"
+msgstr "پرداخت امن به وسیله کلیه کارت های عضو شتاب از طریق درگاه پرداخت نوین"
+
+#: index.php:205
+msgid "Payment Configurations"
+msgstr "تنظیمات پرداخت"
+
+#: index.php:210
+msgid "Successful Payment Message"
+msgstr "پیام پرداخت موفق"
+
+#: index.php:212
+msgid ""
+"Enter the message you want to display to the user after a successful "
+"payment. You can also use the shortcode {transaction_id} to display the "
+"transaction tracking code and {SaleOrderId} to display the payment request "
+"number."
+msgstr ""
+"متن پیامی که میخواهید بعد از پرداخت موفق به کاربر نمایش دهید را وارد "
+"نمایید . همچنین می توانید از شورت کد {transaction_id} برای نمایش کد رهگیری "
+"( کد مرجع تراکنش ) و از شرت کد {SaleOrderId} برای شماره درخواست تراکنش "
+"پرداخت نوین استفاده نمایید ."
+
+#: index.php:213
+msgid ""
+"Thank you. Your order has been successfully paid. Your payment transaction "
+"tracking code is {transaction_id} and the payment request number is "
+"{SaleOrderId}."
+msgstr ""
+"با تشکر از شما . سفارش شما با موفقیت پرداخت شد. کد رهگیری پرداخت شما "
+"{transaction_id} و شماره درخواست تراکنش {SaleOrderId} می باشند."
+
+#: index.php:216
+msgid "Cancellation Message"
+msgstr "پیام انصراف از پرداخت"
+
+#: index.php:218
+msgid ""
+"Enter the message you want to display to the user after they cancel the "
+"payment. This message will be shown after returning from the bank."
+msgstr ""
+"متن پیامی که میخواهید بعد از انصراف کاربر از پرداخت نمایش دهید را وارد "
+"نمایید . این پیام بعد از بازگشت از بانک نمایش داده خواهد شد ."
+
+#: index.php:219
+msgid "Your payment has been canceled."
+msgstr "پرداخت به دلیل انصراف شما ناتمام باقی ماند ."
+
+#: index.php:222
+msgid "Failed Payment Message"
+msgstr "پیام پرداخت ناموفق"
+
+#: index.php:224
+msgid ""
+"Enter the message you want to display to the user after a payment failure. "
+"You can also use the shortcode {fault} to display the reason for the error. "
+"This error reason is sent from PardakhtNovin payment gateway."
+msgstr ""
+"متن پیامی که میخواهید بعد از پرداخت ناموفق به کاربر نمایش دهید را وارد "
+"نمایید . همچنین می توانید از شورت کد {fault} برای نمایش دلیل خطای رخ داده "
+"استفاده نمایید . این دلیل خطا از پرداخت نوین ارسال میگردد ."
+
+#: index.php:225
+msgid ""
+"Your payment has failed. Please try again or contact the site administrator "
+"if you encounter any issues."
+msgstr ""
+"پرداخت شما ناموفق بوده است . لطفا مجددا تلاش نمایید یا در صورت بروز اشکال با "
+"مدیر سایت تماس بگیرید ."
+
+#: index.php:296
+msgid "The uploaded file extension is not pem. Please upload the correct file."
+msgstr "پسوند فایل آپلود شده pem نمی باشد. لطفا فایل صحیح را آپلود نمایید."
+
+#: index.php:303
+msgid ""
+"Error uploading the certificate file. Please check the access to the home "
+"directory on your server."
+msgstr ""
+"خطا در آپلود فایل certificate. لطفا قابلیت دسترسی به دایرکتوری home در سرور "
+"خود را چک نمایید."
+
+#: index.php:310
+msgid "The certificate file was successfully uploaded."
+msgstr "فایل certificate با موفقیت آپلود شد."
+
+#: index.php:340
+#, php-format
+msgid "Error occurred while sending to the payment gateway: %s"
+msgstr ""
+
+#: index.php:345
+#, php-format
+msgid "An error occurred while connecting to the payment gateway: <br/>%s"
+msgstr "خطا در هنگام ارسال به درگاه پرداخت : %s"
+
+#: index.php:364
+msgid "Pay"
+msgstr "پرداخت"
+
+#: index.php:365
+msgid "Back to checkout"
+msgstr "بازگشت"
+
+#: index.php:720
+msgid "Connecting to payment gateway..."
+msgstr "در حال اتصال به درگاه پرداخت..."
+
+#: index.php:840
+#, php-format
+msgid ""
+"Payment was successful.<br/>Transaction Tracking Code (Reference Code): %s "
+"<br/> Transaction Request Number: %s"
+msgstr ""
+"پرداخت موفقیت آمیز بود .<br/> کد رهگیری (کد مرجع تراکنش) : %s <br/> شماره "
+"درخواست تراکنش : %s"
+
+#: index.php:871
+msgid "Order number does not exist."
+msgstr "شماره سفارش وجود ندارد."
+
+#. Plugin Name of the plugin/theme
+msgid "WooCommerce Pardakhtnovin Gateway"
+msgstr "درگاه پرداخت نوین ووکامرس"
+
+#. Plugin URI of the plugin/theme
+msgid ""
+"https://www.noparvar.net/portfolio-archive/woocommerce-pardakhtnovin-gateway-"
+"plugin/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Integrate the Pardakhtnovin payment gateway seamlessly into your WooCommerce "
+"store. Provide a reliable and user-friendly payment option for your "
+"customers, enhancing their checkout experience."
+msgstr ""
+"افزونه درگاه پرداخت نوین این امکان را به شما می دهد تا فروشگاه خود را به "
+"درگاه پرداخت نوین (بانک اقتصاد نوین) متصل کنید."
+
+#. Author of the plugin/theme
+msgid "Mohsen Noparvar"
+msgstr "محسن نوع پرور"
+
+#. Author URI of the plugin/theme
+msgid "https://www.noparvar.net"
+msgstr ""

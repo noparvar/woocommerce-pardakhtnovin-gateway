@@ -1,8 +1,10 @@
 <?php
 /*
 Plugin Name: WooCommerce Pardakhtnovin Gateway
-Version: 1.0.0
+Version: 1.1.0
 Description:  Integrate the Pardakhtnovin payment gateway seamlessly into your WooCommerce store. Provide a reliable and user-friendly payment option for your customers, enhancing their checkout experience.
+ Text Domain: wc-pardakhtnovin
+ Domain Path: /languages
 Plugin URI: https://www.noparvar.net/portfolio-archive/woocommerce-pardakhtnovin-gateway-plugin/
 Author: Mohsen Noparvar
 Author URI: https://www.noparvar.net
@@ -39,10 +41,10 @@ function Load_PardakhtNovin_Gateway() {
 				$this->id = 'eghtesadnovin';
 
 				// Display name for the payment gateway
-				$this->method_title = __('پرداخت نوین', 'woocommerce');
+				$this->method_title = __('Pardakhtnovin Gateway', 'wc-pardakhtnovin');
 
 				// Description for the payment gateway
-				$this->method_description = __('تنظیمات درگاه پرداخت نوین برای افزونه فروشگاه ساز ووکامرس', 'woocommerce');
+				$this->method_description = __('The WooCommerce Pardakhtnovin Gateway Plugin allows you to integrate the Pardakhtnovin payment gateway with your WooCommerce store.', 'wc-pardakhtnovin');
 
 				// Set an icon for the payment gateway (using a filter to apply logo)
 				$this->icon = apply_filters('WC_EghtesadNovin_logo', WP_PLUGIN_URL . "/" . plugin_basename(dirname(__FILE__)) . '/assets/images/logo.png');
@@ -79,20 +81,20 @@ function Load_PardakhtNovin_Gateway() {
 			 */
 			public function admin_options() {
 				?>
-				<h2><?php _e('تنظیمات درگاه پرداخت نوین', 'woocommerce'); ?></h2>
-				<h3>تنظیمات فایل certificate</h3>
+				<h2><?php _e('Pardkhtnovin Gateway Settings', 'wc-pardakhtnovin'); ?></h2>
+				<h3><?php _e('Certificate file settings', 'wc-pardakhtnovin'); ?></h3>
 				<table class="form-table">
 					<tbody>
 					<tr>
 						<th scope="row" class="titledesc">
 							<span class="woocommerce-help-tip"></span>
-							<label for="woocommerce_eghtesadnovin_cetificate">آپلود فایل certificate</label>
+							<label for="woocommerce_eghtesadnovin_cetificate"><?php _e('Upload the certificate file', 'wc-pardakhtnovin'); ?></label>
 						</th>
 						<td class="forminp">
 							<fieldset>
-								<legend class="screen-reader-text"><span>آپلود فایل certificate</span></legend>
+								<legend class="screen-reader-text"><span><?php _e('Upload the certificate file', 'wc-pardakhtnovin'); ?></span></legend>
 								<label for="woocommerce_eghtesadnovin_cetificate">
-									<input type="file" name="certificateToUpload" id="certificateToUpload"> انتخاب فایل
+									<input type="file" name="certificateToUpload" id="certificateToUpload"><?php _e('Choose the certificate file', 'wc-pardakhtnovin'); ?>
 								</label>
 								<br>
 							</fieldset>
@@ -101,17 +103,17 @@ function Load_PardakhtNovin_Gateway() {
 								// Check if the certificate file has been uploaded and display appropriate message
 								$certFileStatus = get_option('novin_certificate_file');
 								if ($certFileStatus && file_exists($certFileStatus)) {
-									echo '<span style="color:green">فایل certificate آپلود شده است و نیازی به انتخاب دوباره آن نیست.</span><br>';
+									echo '<span style="color:green">' . __('The certificate file is already uploaded.', 'wc-pardakhtnovin') . '</span><br>';
 								} else {
-									echo '<span style="color:red">فایل certificate هنوز آپلود نشده است. لطفاً آن را انتخاب نمایید.</span><br>';
+									echo '<span style="color:red">' . __('The certificate file is not uploaded yet.', 'wc-pardakhtnovin') . '</span><br>';
 								}
-								?>
-								لطفا توجه داشته باشید که پسوند فایل باید pem باشد<br>
-								...
-								<?php
+
+                                _e('The certificate file must have pem extension.', 'wc-pardakhtnovin');
+                                echo '<br>';
+
 								// Check if the directory is writable and display a message accordingly
 								if (!is_writable($this->get_home_directory_address() . '/')) {
-									echo '<span style="color:red">متاسفانه اجازه ی لازم برای آپلود فایل در دایرکتوری Home وجود ندارد. لطفا این مشکل را با ادمین هاست خود در میان بگذارید.</span><br>';
+									echo '<span style="color:red">' . __('The Home directory is not writable!', 'wc-pardakhtnovin') . '</span><br>';
 								}
 								?>
 							</p>
@@ -135,92 +137,92 @@ function Load_PardakhtNovin_Gateway() {
 				$this->form_fields = apply_filters('WC_EghtesadNovin_Config',
 					array(
 						// Account Configuration Section
-						'account_confing' => array(
-							'title'       => __( 'تنظیمات حساب پرداخت نوین', 'woocommerce' ),
+						'account_config' => array(
+							'title'       => __( 'Pardakhtnovin Account Configurations', 'wc-pardakhtnovin' ),
 							'type'        => 'title',
 							'description' => '',
 						),
 						'terminal' => array(
-							'title'       => __( 'ترمینال آیدی', 'woocommerce' ),
+							'title'       => __( 'Terminal ID', 'wc-pardakhtnovin' ),
 							'type'        => 'text',
-							'description' => __( 'شماره ترمینال درگاه پرداخت نوین', 'woocommerce' ),
+							'description' => __( 'Terminal ID of Pardakhtnovin Gateway', 'wc-pardakhtnovin' ),
 							'default'     => '',
 							'desc_tip'    => true
 						),
 						'username' => array(
-							'title'       => __( 'نام کاربری', 'woocommerce' ),
+							'title'       => __( 'Username', 'wc-pardakhtnovin' ),
 							'type'        => 'text',
-							'description' => __( 'نام کاربری درگاه پرداخت نوین', 'woocommerce' ),
+							'description' => __( 'Username of Pardakhtnovin Gateway', 'wc-pardakhtnovin' ),
 							'default'     => '',
 							'desc_tip'    => true
 						),
 						'password' => array(
-							'title'       => __( 'کلمه عبور', 'woocommerce' ),
+							'title'       => __( 'Password', 'wc-pardakhtnovin' ),
 							'type'        => 'text',
-							'description' => __( 'کلمه عبور درگاه پرداخت نوین', 'woocommerce' ),
+							'description' => __( 'Password of Pardakhtnovin Gateway', 'wc-pardakhtnovin' ),
 							'default'     => '',
 							'desc_tip'    => true
 						),
 						'certpassword' => array(
-							'title'       => __( 'کلمه عبور certificate', 'woocommerce' ),
+							'title'       => __( 'Certificate Password', 'wc-pardakhtnovin' ),
 							'type'        => 'text',
-							'description' => __( 'کلمه عبور certificate', 'woocommerce' ),
+							'description' => __( 'Certificate Password', 'wc-pardakhtnovin' ),
 							'default'     => '',
 							'desc_tip'    => true
 						),
 
 						// Base Configuration Section
-						'base_confing' => array(
-							'title'       => __( 'تنظیمات پایه ای', 'woocommerce' ),
+						'base_config' => array(
+							'title'       => __( 'Plugin Configurations', 'wc-pardakhtnovin' ),
 							'type'        => 'title',
 							'description' => '',
 						),
 						'enabled' => array(
-							'title'   => __( 'فعالسازی/غیرفعالسازی', 'woocommerce' ),
+							'title'   => __( 'Enable / Disable', 'wc-pardakhtnovin' ),
 							'type'    => 'checkbox',
-							'label'   => __( 'فعالسازی درگاه پرداخت نوین', 'woocommerce' ),
-							'description' => __( 'برای فعالسازی درگاه پرداخت نوین باید چک باکس را تیک بزنید', 'woocommerce' ),
+							'label'   => __( 'Enable', 'wc-pardakhtnovin' ),
+							'description' => __( 'Check to enable Novinpardakht Gateway', 'wc-pardakhtnovin' ),
 							'default' => 'yes',
 							'desc_tip'    => true,
 						),
 						'title' => array(
-							'title'       => __( 'عنوان درگاه', 'woocommerce' ),
+							'title'       => __( 'Gateway Title', 'wc-pardakhtnovin' ),
 							'type'        => 'text',
-							'description' => __( 'عنوان درگاه که در طی خرید به مشتری نمایش داده میشود', 'woocommerce' ),
-							'default'     => __( 'پرداخت نوین', 'woocommerce' ),
+							'description' => __( 'Enter the title you want to display to the user during checkout and payment', 'wc-pardakhtnovin' ),
+							'default'     => __( 'Pardakhtnovin', 'wc-pardakhtnovin' ),
 							'desc_tip'    => true,
 						),
 						'description' => array(
-							'title'       => __( 'توضیحات درگاه', 'woocommerce' ),
+							'title'       => __( 'Gateway Description', 'wc-pardakhtnovin' ),
 							'type'        => 'text',
 							'desc_tip'    => true,
-							'description' => __( 'توضیحاتی که در طی عملیات پرداخت برای درگاه نمایش داده خواهد شد', 'woocommerce' ),
-							'default'     => __( 'پرداخت امن به وسیله کلیه کارت های عضو شتاب از طریق درگاه پرداخت نوین', 'woocommerce' )
+							'description' => __( 'Enter the description you want to display to the user during checkout and payment', 'wc-pardakhtnovin' ),
+							'default'     => __( 'Secure payment with all Shetab Cards with Pardakhtnovin', 'wc-pardakhtnovin' )
 						),
 
 						// Payment Configuration Section
-						'payment_confing' => array(
-							'title'       => __( 'تنظیمات عملیات پرداخت', 'woocommerce' ),
+						'payment_config' => array(
+							'title'       => __( 'Payment Configurations', 'wc-pardakhtnovin' ),
 							'type'        => 'title',
 							'description' => '',
 						),
 						'success_massage' => array(
-							'title'       => __( 'پیام پرداخت موفق', 'woocommerce' ),
+							'title'       => __( 'Successful Payment Message', 'wc-pardakhtnovin' ),
 							'type'        => 'textarea',
-							'description' => __( 'متن پیامی که میخواهید بعد از پرداخت موفق به کاربر نمایش دهید را وارد نمایید . همچنین می توانید از شورت کد {transaction_id} برای نمایش کد رهگیری ( کد مرجع تراکنش ) و از شرت کد {SaleOrderId} برای شماره درخواست تراکنش پرداخت نوین استفاده نمایید .', 'woocommerce' ),
-							'default'     => __( 'با تشکر از شما . سفارش شما با موفقیت پرداخت شد.<br>کد رهگیری پرداخت شما {transaction_id} و شماره درخواست تراکنش {SaleOrderId} می باشند.', 'woocommerce' ),
+                            'description' => __( 'Enter the message you want to display to the user after a successful payment. You can also use the shortcode {transaction_id} to display the transaction tracking code and {SaleOrderId} to display the payment request number.', 'wc-pardakhtnovin' ),
+                            'default'     => __( 'Thank you. Your order has been successfully paid. Your payment transaction tracking code is {transaction_id} and the payment request number is {SaleOrderId}.', 'wc-pardakhtnovin' ),
 						),
 						'cancelled_massage' => array(
-							'title'       => __( 'پیام انصراف از پرداخت', 'woocommerce' ),
+                            'title'       => __( 'Cancellation Message', 'wc-pardakhtnovin' ),
 							'type'        => 'textarea',
-							'description' => __( 'متن پیامی که میخواهید بعد از انصراف کاربر از پرداخت نمایش دهید را وارد نمایید . این پیام بعد از بازگشت از بانک نمایش داده خواهد شد .', 'woocommerce' ),
-							'default'     => __( 'پرداخت به دلیل انصراف شما ناتمام باقی ماند .', 'woocommerce' ),
+                            'description' => __( 'Enter the message you want to display to the user after they cancel the payment. This message will be shown after returning from the bank.', 'wc-pardakhtnovin' ),
+                            'default'     => __( 'Your payment has been canceled.', 'wc-pardakhtnovin' ),
 						),
                         'failed_massage' => array(
-                            'title' => __('پیام پرداخت ناموفق', 'woocommerce'),
+                            'title' => __('Failed Payment Message', 'wc-pardakhtnovin'),
                             'type' => 'textarea',
-                            'description' => __('متن پیامی که میخواهید بعد از پرداخت ناموفق به کاربر نمایش دهید را وارد نمایید . همچنین می توانید از شورت کد {fault} برای نمایش دلیل خطای رخ داده استفاده نمایید . این دلیل خطا از پرداخت نوین ارسال میگردد .', 'woocommerce'),
-                            'default' => __('پرداخت شما ناموفق بوده است . لطفا مجددا تلاش نمایید یا در صورت بروز اشکال با مدیر سایت تماس بگیرید .', 'woocommerce'),
+                            'description' => __('Enter the message you want to display to the user after a payment failure. You can also use the shortcode {fault} to display the reason for the error. This error reason is sent from PardakhtNovin payment gateway.', 'wc-pardakhtnovin'),
+                            'default' => __('Your payment has failed. Please try again or contact the site administrator if you encounter any issues.', 'wc-pardakhtnovin'),
                         )
 					)
 				);
@@ -291,21 +293,21 @@ function Load_PardakhtNovin_Gateway() {
 			 * Displays a notice for invalid file extension.
 			 */
 			public function display_invalid_extension_notice() {
-				?><div class="error notice"><p>پسوند فایل آپلود شده pem نمی باشد. لطفا فایل صحیح را آپلود نمایید.</p></div><?php
+				echo '<div class="error notice"><p>' . __('The uploaded file extension is not pem. Please upload the correct file.', 'wc-pardakhtnovin') . '</p></div>';
 			}
 
 			/**
 			 * Displays a notice for file upload failure.
 			 */
 			public function display_upload_failure_notice() {
-				?><div class="error notice"><p>خطا در آپلود فایل certificate. لطفا قابلیت دسترسی به دایرکتوری home در سرور خود را چک نمایید.</p></div><?php
+                echo '<div class="error notice"><p>' . __('Error uploading the certificate file. Please check the access to the home directory on your server.', 'wc-pardakhtnovin') . '</p></div>';
 			}
 
 			/**
 			 * Displays a notice for successful file upload.
 			 */
 			public function display_upload_success_notice() {
-				?><div class="updated notice"><p>فایل certificate با موفقیت آپلود شد.</p></div><?php
+                echo '<div class="error notice"><p>' . __('The certificate file was successfully uploaded.', 'wc-pardakhtnovin') . '</p></div>';
 			}
 
 			/**
@@ -335,12 +337,12 @@ function Load_PardakhtNovin_Gateway() {
 			 */
 			public function error_in_Gateway_By_Pardakhtnovin($error, $order, $order_id) {
 				// Create a note with the error message and add it to the order's notes
-				$note = sprintf(__('خطا در هنگام ارسال به درگاه پرداخت : %s', 'woocommerce'), $error);
+                $note = sprintf(__('Error occurred while sending to the payment gateway: %s', 'wc-pardakhtnovin'), $error);
 				$note = apply_filters('WC_EghtesadNovin_Send_to_Gateway_Failed_Note', $note, $order_id, 1);
 				$order->add_order_note($note);
 
 				// Create a notice with the error message and display it to the user
-				$notice = sprintf(__('در هنگام اتصال به درگاه پرداخت خطای زیر رخ داده است : <br/>%s', 'woocommerce'), $error);
+                $notice = sprintf(__('An error occurred while connecting to the payment gateway: <br/>%s', 'wc-pardakhtnovin'), $error);
 				$notice = apply_filters('WC_EghtesadNovin_Send_to_Gateway_Failed_Notice', $notice, $order_id, 1);
 				if ($notice) {
 					wc_add_notice($notice, 'error');
@@ -359,8 +361,8 @@ function Load_PardakhtNovin_Gateway() {
 			private function generate_checkout_form($order_id, $woocommerce) {
 				// Generate the HTML for the checkout form
 				$form = '<form action="" method="POST" class="eghtesadnovin-checkout-form" id="eghtesadnovin-checkout-form">
-                            <input type="submit" name="eghtesadnovin_submit" class="button alt" id="eghtesadnovin-payment-button" value="' . __('پرداخت', 'woocommerce') . '"/>
-                            <a class="button cancel" href="' . $woocommerce->cart->get_checkout_url() . '">' . __('بازگشت', 'woocommerce') . '</a>
+                            <input type="submit" name="eghtesadnovin_submit" class="button alt" id="eghtesadnovin-payment-button" value="' . __('Pay', 'wc-pardakhtnovin') . '"/>
+                            <a class="button cancel" href="' . $woocommerce->cart->get_checkout_url() . '">' . __('Back to checkout', 'wc-pardakhtnovin') . '</a>
                         </form><br/>';
 
 				// Perform actions before displaying the form
@@ -715,7 +717,7 @@ function Load_PardakhtNovin_Gateway() {
 			 * @param string $generateSignedPurchaseToken The generated signed purchase token.
 			 */
 			private function display_notice_and_redirect($generateSignedPurchaseToken) {
-				echo 'در حال اتصال به بانک...';
+                _e( 'Connecting to payment gateway...', 'wc-pardakhtnovin' );
 
 				// Create a hidden form for redirection to the payment gateway
 				echo '<form id="redirect_to_novin" method="post" action="https://pna.shaparak.ir/_ipgw_/payment/" style="display:none !important;">
@@ -835,7 +837,7 @@ function Load_PardakhtNovin_Gateway() {
 				$woocommerce->cart->empty_cart();
 
 				// Add a note to the order
-				$Note = sprintf(__('پرداخت موفقیت آمیز بود .<br/> کد رهگیری (کد مرجع تراکنش) : %s <br/> شماره درخواست تراکنش : %s', 'woocommerce'), $transaction_id, $SaleOrderId);
+                $Note = sprintf(__('Payment was successful.<br/>Transaction Tracking Code (Reference Code): %s <br/> Transaction Request Number: %s', 'wc-pardakhtnovin'), $transaction_id, $SaleOrderId);
 				$Note = apply_filters('WC_EghtesadNovin_Return_from_Gateway_Success_Note', $Note, $order_id, $transaction_id, $SaleOrderId);
 				if ($Note) {
 					$order->add_order_note($Note, 1);
@@ -866,7 +868,7 @@ function Load_PardakhtNovin_Gateway() {
 				global $woocommerce;
 
 				// Create an error notice
-				$fault = __('شماره سفارش وجود ندارد .', 'woocommerce');
+                $fault = __('Order number does not exist.', 'wc-pardakhtnovin');
 				$Notice = wpautop(wptexturize($this->failed_massage));
 				$Notice = str_replace('{fault}', $fault, $Notice);
 				$Notice = apply_filters('WC_EghtesadNovin_Return_from_Gateway_No_Order_ID_Notice', $Notice, $order_id, $fault);
